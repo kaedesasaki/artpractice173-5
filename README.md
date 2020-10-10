@@ -1,3 +1,3 @@
-# sound game part 1 : moving parts and looping sounds
+# artpractice173-5
 
-finished sketch: https://socalledsound.github.io/sound-game-1-starter/
+https://kaedesasaki.github.io/artpractice173-5/.
