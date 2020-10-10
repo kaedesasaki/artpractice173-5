@@ -22,7 +22,7 @@ const ball1 = {
 const ball2 = {
     x: 300,
     y: 300,
-    size: 30,
+    size: 70,
     speed: 2,
     fillColor: [294, 169, 221],
     strokeColor: [150, 111, 214],
@@ -34,11 +34,24 @@ const ball2 = {
 
 const ball3 = {
     x: 300,
-    y: 200,
+    y: 450,
     size: 100,
     speed: 2,
     fillColor: [251,204, 209],
     strokeColor: [234, 137, 154],
+    ballStrokeWeight: 2,
+    rightSound: sounds[4],
+    leftSound: sounds[5],
+    soundLength: 500,
+} 
+
+const ball4 = {
+    x: 300,
+    y: 400,
+    size: 50,
+    speed: 2,
+    fillColor: [2294, 169, 221],
+    strokeColor: [251,204, 209],
     ballStrokeWeight: 2,
     rightSound: sounds[4],
     leftSound: sounds[5],
@@ -83,6 +96,8 @@ function preload(){
     ball2.leftSound = sounds[0];
     ball3.rightSound = sounds[1];
     ball3.leftSound = sounds[2];
+    ball4.rightSound = sounds[0];
+    ball4.leftSound = sounds[1];
 
     // for(let i = 0; i < sounds.length; i++){
     //     sounds[i] = loadSound(`sounds/${i}.mp3`)
