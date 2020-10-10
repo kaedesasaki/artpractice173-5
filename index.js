@@ -8,8 +8,8 @@ const sounds = Array.from({ length: 6 });
 
 const ball1 = {
     x: 300,
-    y: 300,
-    size: 100,
+    y: 100,
+    size: 130,
     speed: 1,
     fillColor: [189, 236, 182],
     strokeColor: [163, 231, 214],
@@ -21,8 +21,8 @@ const ball1 = {
 
 const ball2 = {
     x: 300,
-    y: 100,
-    size: 50,
+    y: 300,
+    size: 30,
     speed: 2,
     fillColor: [294, 169, 221],
     strokeColor: [150, 111, 214],
@@ -35,7 +35,7 @@ const ball2 = {
 const ball3 = {
     x: 300,
     y: 200,
-    size: 80,
+    size: 100,
     speed: 2,
     fillColor: [251,204, 209],
     strokeColor: [234, 137, 154],
