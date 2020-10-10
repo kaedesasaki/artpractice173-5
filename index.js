@@ -1,23 +1,22 @@
-// const backgroundColor = [230,220,190];
-const myCanvas = { width: 750, height: 700};
+const myCanvas = { width: 600, height: 600};
 const backgroundColor = [251,213,198];
 const lineColor = [242, 184, 216];
 const activeLineColor = [255, 105, 97];
-const lineWidth = 10;
+const lineWidth = 3;
 const activelineWidth = 9;
 const sounds = Array.from({ length: 6});
 
 const ball1 = {
     x: 300,
-    y: 500,
+    y: 300,
     size: 80,
-    speed: 5,
+    speed: 1,
     fillColor: [189, 236, 182],
     strokeColor: [163, 231, 214],
     ballStrokeWeight: 2,
     Sound: sounds[0],
+    leftSound: sounds[1],
     soundLength: 500,
-
 } 
 
 const ball2 = {
@@ -29,8 +28,8 @@ const ball2 = {
     strokeColor: [150, 111, 214],
     ballStrokeWeight: 2,
     Sound: sounds[1],
-    soundLength: 500,
-
+    leftSound: sounds[3],
+    soundLength: 1000,
 } 
 
 const ball3 = {
@@ -42,25 +41,27 @@ const ball3 = {
     strokeColor: [234, 137, 154],
     ballStrokeWeight: 2,
     Sound: sounds[2],
+    leftSound: sounds[0],
+    rightSound: sounds[1],
     soundLength: 500,
  
 } 
 
 const leftEdge = {
     x1: 100,
-    y1: 50,
+    y1: 0,
     x2: 110,
-    y2: 650,
+    y2: 600,
     color: lineColor,
     width: lineWidth,
 
 }
 
 const rightEdge = {
-    x1: 650,
-    y1: 50,
-    x2: 650,
-    y2: 650,
+    x1: 470,
+    y1: 0,
+    x2: 470,
+    y2: 600,
     color: lineColor,
     width: lineWidth,
 }
@@ -76,6 +77,7 @@ function preload(){
         sounds[i] = loadSound(`sounds/${i}.mp3`)
     })
 
+    console.log(sounds);
     ball1.Sound = sounds[0];
     ball2.Sound = sounds[1];
     ball3.Sound = sounds[2];
@@ -110,14 +112,15 @@ function updateBall(ball){
     console.log(ball.x);
     if(ball.x + ball.size/2 > rightEdge.x1 ){
         ball.speed *= -1;
+        ball.rightSound.play();
         activateLine(rightEdge);
     } else if(ball.x - ball.size/2 < leftEdge.x1 ){
         ball.speed *= -1;
+        ball.leftSound.play();
         activateLine(leftEdge);
     }
     ball.x+= ball.speed;
 }
-
 
 const displayBall = ({x, y, size, strokeColor, fillColor, ballStrokeWeight}) => {
         stroke(strokeColor);
@@ -131,8 +134,6 @@ function drawLine({x1, y1, x2, y2, color, width}){
     strokeWeight(width);
     line(x1, y1, x2, y2);
 }
-
-
 
 function activateLine(line){
 
