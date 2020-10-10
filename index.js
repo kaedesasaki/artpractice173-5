@@ -37,7 +37,7 @@ const ball3 = {
     y: 500,
     size: 100,
     speed: 2,
-    fillColor: 251,204, 209],
+    fillColor: [251,204, 209],
     strokeColor: [234, 137, 154],
     ballStrokeWeight: 2,
     Sound: sounds[2],
